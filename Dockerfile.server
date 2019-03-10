@@ -1,0 +1,8 @@
+FROM node:latest
+
+RUN npm install express body-parser mongoose cors dotenv bcrypt
+
+# Bundle app source
+COPY starter-server/ .
+
+CMD [ "node", "index.js" ]
