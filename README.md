@@ -7,17 +7,18 @@ With MongoDB connector and example route.
 Folder structure provided for ease of future scale.
 Basic password encryption provided.
 
-### Run with
+### Run with <br>
 `docker-compose up`
 
-To restore the data from the /data volume, run
+To restore the data from the /data volume, run<br>
 `docker exec mongo mongorestore data`
 
 Get `example json data` from the test route:
-with httPie: `http GET localhost:8081/api/testroute`
-with curl: `curl -i -H "Accept: application/json"  --GET localhost:8081/api/testroute`
+* with httPie: `http GET localhost:8081/api/testroute`
+* with curl: `curl -i -H "Accept: application/json"  --GET localhost:8081/api/testroute`
 
-You can start all components without docker-compose,
+You can start all components without docker-compose, <br>
 with `npm init && npm install`
-If you have installed MongoDB, run mongoDB with `mongod`
+
+If you have installed MongoDB, run mongoDB with `mongod` <br>
 and set url of the database in MONGOURL environment variable (for example in .env file in a root folder).
