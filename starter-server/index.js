@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-// api/{newroute}
+// api/{testroute}
 app.use("/api/", newRoute);
 
 app.use(function(req, res, next) {
@@ -27,5 +27,8 @@ app.use(function(req, res, next) {
 app.use(errorHandler);
 
 app.listen(PORT, function() {
-  console.log(`Server is starting on port ${PORT}`);
+  setTimeout(function() {
+      console.log('Server waiting for the Database to start...');
+      console.log(`Server started on port ${PORT}`);
+  }, 3000);
 });

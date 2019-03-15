@@ -1,0 +1,41 @@
+version: "3"
+services:
+
+  frontend:
+    container_name: react-backend
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - 8080:8080
+    environment:
+      PORT: 8080
+    networks:
+          - backend
+
+  backend:
+    container_name: node-backend
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+    networks:
+          - backend
+
+  mongo:
+    container_name: mongo
+    image: bitnami/mongodb:latest
+    ports:
+      - 27017
+    volumes:
+      - ./data:/data
+    networks:
+          - backend
+
+networks:
+    backend: {}

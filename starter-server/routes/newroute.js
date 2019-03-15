@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router({ mergeParams: true });
 
 
-router.get('/newroute', function (req, res) {
-  res.send('Hello World from New Route!')
+router.get('/testroute', function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.json({username: "test_user", value: "test_value", info: "additional_info"});
 })
 module.exports = router;
